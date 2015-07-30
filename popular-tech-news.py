@@ -36,3 +36,23 @@ print('popular in both')
 common = list(set(urls) & set(topPosts))
 for item in common:
         print(item)
+
+# email options
+SERVER = "localhost"
+FROM = "yourdomain"
+TO = ["yourmail"]
+SUBJECT = "Viral News"
+TEXT = '\n'.join(common)
+
+message = """\
+From: %s
+To: %s
+Subject: %s
+
+%s
+""" % (FROM, ", ".join(TO), SUBJECT, TEXT)
+
+server = smtplib.SMTP(SERVER)
+server.set_debuglevel(3)
+server.sendmail(FROM, TO, message)
+server.quit()
