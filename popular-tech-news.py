@@ -24,7 +24,7 @@ import praw
 from pprint import pprint
 r = praw.Reddit(user_agent='fossbytes')
 #replace username and password
-r.login('techy221','Bril4359#')
+r.login('username','password')
 subreddit = r.get_subreddit('technology')
 topPosts = []
 for submission in subreddit.get_hot(limit=50):
